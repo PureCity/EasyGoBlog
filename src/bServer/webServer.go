@@ -33,7 +33,7 @@ func (web *WebServer) InitTemplates() (err error) {
 		templateName = fileInfo.Name()
 		ext := path.Ext(templateName)
 		//过滤非html文件
-		if ext != "html" {
+		if ext != ".html" {
 			continue
 		}
 
