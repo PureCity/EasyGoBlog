@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	TEMPLATES_DIR = "templates" //存放模板的文件夹
+	constTemplatesDir = "templates" //存放模板的文件夹
 )
 
 //网页服务类
@@ -22,7 +22,7 @@ type WebServer struct {
 func (web *WebServer) InitTemplates() (err error) {
 	web.DisposeTemplates()
 
-	fileInfoArr, err := ioutil.ReadDir(TEMPLATES_DIR)
+	fileInfoArr, err := ioutil.ReadDir(constTemplatesDir)
 	if err != nil {
 		panic(err)
 		return
@@ -37,7 +37,7 @@ func (web *WebServer) InitTemplates() (err error) {
 			continue
 		}
 
-		templatePath = TEMPLATES_DIR + "/" + templateName
+		templatePath = constTemplatesDir + "/" + templateName
 		log.Println("读取模板：", templatePath)
 		t := template.Must(template.ParseFiles(templatePath))
 		//将模板存入缓存
